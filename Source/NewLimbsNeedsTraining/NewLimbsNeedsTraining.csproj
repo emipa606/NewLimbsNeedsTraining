@@ -53,6 +53,7 @@
     <Compile Include="HediffWithComps_CalculatePartEfficiency.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="NewLimbsNeedsTraining.cs" />
+    <Compile Include="PawnGenerator_GeneratePawn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
