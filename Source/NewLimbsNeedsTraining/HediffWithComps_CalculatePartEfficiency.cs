@@ -10,11 +10,9 @@ namespace NewLimbsNeedsTraining
         typeof(bool), typeof(List<PawnCapacityUtility.CapacityImpactor>))]
     public class HediffWithComps_CalculatePartEfficiency
     {
-        private static float getOffset(int age, float incomingEfficency)
+        private static float getOffset(Hediff_AddedPart hediffAddedPart, float incomingEfficency)
         {
-            // 60000 ticks is one day
-            // 900000 ticks is one quandrum (15 days)
-            var factor = (float) age / NewLimbsNeedsTraining.ticksUntilDone;
+            var factor = (float) hediffAddedPart.ageTicks / NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart);
             return Math.Min(incomingEfficency, incomingEfficency * factor);
         }
 
@@ -34,14 +32,14 @@ namespace NewLimbsNeedsTraining
             }
 
             var hediffs = diffSet.GetHediffs<Hediff_AddedPart>();
-            var hediff_AddedPart = hediffs.First(x => x.Part == part);
-            if (hediff_AddedPart.ageTicks > NewLimbsNeedsTraining.ticksUntilDone)
+            var hediffAddedPart = hediffs.First(x => x.Part == part);
+            if (hediffAddedPart.ageTicks > NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart))
             {
                 // Log.Message($"Hediff trained {part.def.defName}");
                 return;
             }
 
-            __result = getOffset(hediff_AddedPart.ageTicks, __result);
+            __result = getOffset(hediffAddedPart, __result);
         }
     }
 }

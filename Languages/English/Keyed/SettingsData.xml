@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <NLNT.DaysUntilRecoveryLabel>Days until full use of limbs: {0}</NLNT.DaysUntilRecoveryLabel>
+  <NLNT.DaysUntilRecoveryLabel>Days until full use of limbs, based on tech-level of limb</NLNT.DaysUntilRecoveryLabel>
   <NLNT.DaysUntilRecoveryToolTip>Efficency of a limb will start at 0 and increase to the default value during this amount of days.</NLNT.DaysUntilRecoveryToolTip>
+  <Neolithic>Neolithic</Neolithic>
+  <Medieval>Medieval</Medieval>
+  <Industrial>Industrial</Industrial>
+  <Spacer>Spacer</Spacer>
+  <Ultra>Ultra</Ultra>
+  <Archotech>Archotech</Archotech>
+  <Reset>Reset</Reset>
+  <NLNT.Days>{0} days</NLNT.Days>
 </LanguageData>

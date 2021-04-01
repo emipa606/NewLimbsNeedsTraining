@@ -7,7 +7,12 @@ namespace NewLimbsNeedsTraining
     /// </summary>
     internal class NewLimbsNeedsTrainingSettings : ModSettings
     {
-        public int DaysUntilRecovery = 15;
+        public int Archotech = 1;
+        public int Industrial = 15;
+        public int Medieval = 25;
+        public int Neolithic = 30;
+        public int Spacer = 10;
+        public int Ultra = 5;
 
         /// <summary>
         ///     Saving and loading the values
@@ -15,7 +20,12 @@ namespace NewLimbsNeedsTraining
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref DaysUntilRecovery, "DaysUntilRecovery", 3);
+            Scribe_Values.Look(ref Neolithic, "Neolithic", 30);
+            Scribe_Values.Look(ref Medieval, "Medieval", 25);
+            Scribe_Values.Look(ref Industrial, "Industrial", 15);
+            Scribe_Values.Look(ref Spacer, "Spacer", 10);
+            Scribe_Values.Look(ref Ultra, "Ultra", 5);
+            Scribe_Values.Look(ref Archotech, "Archotech", 1);
         }
     }
 }

@@ -16,8 +16,8 @@ namespace NewLimbsNeedsTraining
                     continue;
                 }
 
-                hediffAddedPart.ageTicks = Rand.Range(NewLimbsNeedsTraining.ticksUntilDone,
-                    NewLimbsNeedsTraining.ticksUntilDone * 2);
+                hediffAddedPart.ageTicks = Rand.Range(NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart),
+                    NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart) * 2);
             }
         }
     }

@@ -25,7 +25,9 @@ When a pawn gets a new limb transplanted they will need some time until they get
 The efficency of the limb will be lower and increase with time up to the maximum value.
 
 Default time is 15 days (one quandrum) but can be changed in settings.
-Only affects bodyparts that is defined on the outside on the body, implants will not be affected.
+Only affects bodyparts that is defined as on the outside of the body, implants will not be affected.
+
+Tested with EPOE but should work with any mod that adds limbs.
 
 Idea by: uiopik 
 
