@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>New Limbs Needs Training</name>
   <packageId>Mlie.NewLimbsNeedsTraining</packageId>
@@ -24,7 +24,7 @@
 When a pawn gets a new limb transplanted they will need some time until they get used to it.
 The efficency of the limb will be lower and increase with time up to the maximum value.
 
-Default time is 15 days (one quandrum) but can be changed in settings.
+Recovery-time is based on the tech-level of the limb and can be changed in the mod-settings.
 Only affects bodyparts that is defined as on the outside of the body, implants will not be affected.
 
 Tested with EPOE but should work with any mod that adds limbs.
