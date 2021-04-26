@@ -8,8 +8,11 @@ The efficency of the limb will be lower and increase with time up to the maximum
 
 Recovery-time is based on the tech-level of the limb and can be changed in the mod-settings.
 Only affects bodyparts that is defined as on the outside of the body, implants will not be affected.
+Will also ignore limbs connected to blood pumping, breathing and mind even if on the outside.
 
 Tested with EPOE but should work with any mod that adds limbs.
+
+- Added french translation, thanks qux!
 
 Idea by: uiopik 
 

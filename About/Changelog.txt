@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.0.6.0 - Added french translation, thanks qux!
+
+
 1.0.5.0 - Limbs connected to breathing/bloodpumping and mind will now be ignored even if defined as outside.
 
 

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NLNT.DaysUntilRecoveryLabel>Jours jusqu'à l'utilisation complète des membres, en fonction du niveau technologique du membre</NLNT.DaysUntilRecoveryLabel>
+  <NLNT.DaysUntilRecoveryToolTip>L'efficacité d'un membre commencera à 0 et augmentera à la valeur par défaut pendant ce nombre de jours.</NLNT.DaysUntilRecoveryToolTip>
+  <Neolithic>Néolithique</Neolithic>
+  <Medieval>Médiéval</Medieval>
+  <Industrial>Industriel</Industrial>
+  <Spacer>Spatial</Spacer>
+  <Ultra>Ultra</Ultra>
+  <Archotech>Archotech</Archotech>
+  <Reset>réinitialiser</Reset>
+  <NLNT.Days>{0} jours</NLNT.Days>
+</LanguageData>
