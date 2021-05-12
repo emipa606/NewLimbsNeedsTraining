@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NLNT.DaysUntilRecoveryLabel>Tage bis zur vollen Nutzung der Glieder, Basierend auf dem Technischen Level des Körperteils.</NLNT.DaysUntilRecoveryLabel>
+  <NLNT.DaysUntilRecoveryToolTip>Effizienz eines Körperteils startet bei 0 und steigt zum Standardwert während dieser Anzahl von Tagen.</NLNT.DaysUntilRecoveryToolTip>
+  <Neolithic>Neolithisch</Neolithic>
+  <Medieval>Mittelalterlich</Medieval>
+  <Industrial>Industriell</Industrial>
+  <Spacer>Spacer</Spacer>
+  <Ultra>Ultra</Ultra>
+  <Archotech>Archotech</Archotech>
+  <Reset>Zurücksetzen</Reset>
+  <NLNT.Days>{0} Tage</NLNT.Days>
+</LanguageData>
