@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.0.9.0 - Found a better way of ignoring existing artificial limbs on new pawns
+
+
 1.0.8.0 - Should no longer cause issues when generating faction-leaders at gamestart
 
 
