@@ -7,7 +7,8 @@ using Verse;
 
 namespace NewLimbsNeedsTraining
 {
-    [HarmonyPatch(typeof(PawnCapacityUtility), "CalculatePartEfficiency", typeof(HediffSet), typeof(BodyPartRecord), typeof(bool), typeof(List<PawnCapacityUtility.CapacityImpactor>))]
+    [HarmonyPatch(typeof(PawnCapacityUtility), "CalculatePartEfficiency", typeof(HediffSet), typeof(BodyPartRecord),
+        typeof(bool), typeof(List<PawnCapacityUtility.CapacityImpactor>))]
     public class HediffWithComps_CalculatePartEfficiency
     {
         [HarmonyPostfix]
@@ -15,28 +16,30 @@ namespace NewLimbsNeedsTraining
         {
             if (part.depth != BodyPartDepth.Outside)
             {
-                // Log.Message("Dont affect things we cannot see");
                 return;
             }
 
             if (!diffSet.HasDirectlyAddedPartFor(part))
             {
-                // Log.Message($"No directly added part for {part.def.defName}");
+                return;
+            }
+
+            if (GenTicks.TicksGame < 1)
+            {
                 return;
             }
 
             var vitalBodyPartTags = new List<BodyPartTagDef>
-                                        {
-                                            BodyPartTagDefOf.BloodPumpingSource,
-                                            BodyPartTagDefOf.BreathingPathway,
-                                            BodyPartTagDefOf.BreathingSource,
-                                            BodyPartTagDefOf.BreathingSourceCage,
-                                            BodyPartTagDefOf.ConsciousnessSource
-                                        };
+            {
+                BodyPartTagDefOf.BloodPumpingSource,
+                BodyPartTagDefOf.BreathingPathway,
+                BodyPartTagDefOf.BreathingSource,
+                BodyPartTagDefOf.BreathingSourceCage,
+                BodyPartTagDefOf.ConsciousnessSource
+            };
 
             if (part.def.tags.Any(def => vitalBodyPartTags.Contains(def)))
             {
-                // Log.Message($"{part.def.defName} is vital, will not modify");
                 return;
             }
 
@@ -44,7 +47,6 @@ namespace NewLimbsNeedsTraining
             var hediffAddedPart = hediffs.First(x => x.Part == part);
             if (hediffAddedPart.ageTicks > NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart))
             {
-                // Log.Message($"Hediff trained {part.def.defName}");
                 return;
             }
 
@@ -53,7 +55,7 @@ namespace NewLimbsNeedsTraining
 
         private static float getOffset(Hediff_AddedPart hediffAddedPart, float incomingEfficency)
         {
-            var factor = (float)hediffAddedPart.ageTicks / NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart);
+            var factor = (float) hediffAddedPart.ageTicks / NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart);
             return Math.Min(incomingEfficency, incomingEfficency * factor);
         }
     }

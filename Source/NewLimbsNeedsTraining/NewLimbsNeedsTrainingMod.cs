@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Mlie;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -13,7 +14,9 @@ namespace NewLimbsNeedsTraining
         // 900000 ticks is one quandrum (15 days)
         private const int OneDayInTicks = 60000;
 
-        private static readonly Dictionary<TechLevel, int> DaysUntilRecovery = new();
+        private static readonly Dictionary<TechLevel, int> DaysUntilRecovery = new Dictionary<TechLevel, int>();
+
+        private static string currentVersion;
 
         /// <summary>
         ///     The private settings
@@ -27,6 +30,9 @@ namespace NewLimbsNeedsTraining
         public NewLimbsNeedsTrainingMod(ModContentPack content) : base(content)
         {
             updateTechLevels();
+            currentVersion =
+                VersionFromManifest.GetVersionFromModMetaData(
+                    ModLister.GetActiveModWithIdentifier("Mlie.NewLimbsNeedsTraining"));
         }
 
         /// <summary>
@@ -127,6 +133,13 @@ namespace NewLimbsNeedsTraining
                 Settings.Spacer = 10;
                 Settings.Ultra = 5;
                 Settings.Archotech = 1;
+            }
+
+            if (currentVersion != null)
+            {
+                GUI.contentColor = Color.gray;
+                listing_Standard.Label("NLNT.version.label".Translate(currentVersion));
+                GUI.contentColor = Color.white;
             }
 
             listing_Standard.End();

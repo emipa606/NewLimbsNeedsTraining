@@ -10,4 +10,5 @@
   <Archotech>Archotech</Archotech>
   <Reset>Reset</Reset>
   <NLNT.Days>{0} days</NLNT.Days>
+  <NLNT.version.label>Installed mod-version: {0}</NLNT.version.label>
 </LanguageData>

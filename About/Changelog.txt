@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.0.8.0 - Should no longer cause issues when generating faction-leaders at gamestart
+
+
 1.0.7.0 - Added German translation, thanks 眠いです!
 
 
