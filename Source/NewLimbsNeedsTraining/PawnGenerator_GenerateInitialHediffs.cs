@@ -9,7 +9,7 @@ namespace NewLimbsNeedsTraining
         [HarmonyPostfix]
         public static void Postfix(ref Pawn pawn, ref PawnGenerationRequest request)
         {
-            Log.Message($"NLNT: PawnGenerator_GenerateInitialHediffs checking if has added parts for {pawn}");
+            //Log.Message($"NLNT: PawnGenerator_GenerateInitialHediffs checking if has added parts for {pawn}");
             foreach (var hediffAddedPart in pawn.health.hediffSet.GetHediffs<Hediff_AddedPart>())
             {
                 if (hediffAddedPart.ageTicks >= 1)
