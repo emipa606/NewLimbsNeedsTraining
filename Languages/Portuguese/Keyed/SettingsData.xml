@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NLNT.DaysUntilRecoveryLabel>Dias até o uso total dos membros, com base no nível de tecnologia do membro.</NLNT.DaysUntilRecoveryLabel>
+  <NLNT.DaysUntilRecoveryToolTip>A eficiência de um membro começará em 0 e aumentará para o valor até o valor padrão. Isso irá demorar essa quantidade de dias: </NLNT.DaysUntilRecoveryToolTip>
+  <Neolithic>Neolitico</Neolithic>
+  <Medieval>Medieval</Medieval>
+  <Industrial>Industrial</Industrial>
+  <Spacer>Espacial</Spacer>
+  <Ultra>Ultra</Ultra>
+  <Archotech>Archotech</Archotech>
+  <Reset>Resetar</Reset>
+  <NLNT.Days>{0} Dias</NLNT.Days>
+  <NLNT.version.label>Versão instalada do mod: {0}</NLNT.version.label>
+</LanguageData>
