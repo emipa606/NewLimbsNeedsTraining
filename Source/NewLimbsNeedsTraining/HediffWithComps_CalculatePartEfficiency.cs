@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
-using RimWorld;
 using Verse;
 
 namespace NewLimbsNeedsTraining
@@ -29,16 +28,7 @@ namespace NewLimbsNeedsTraining
                 return;
             }
 
-            var vitalBodyPartTags = new List<BodyPartTagDef>
-            {
-                BodyPartTagDefOf.BloodPumpingSource,
-                BodyPartTagDefOf.BreathingPathway,
-                BodyPartTagDefOf.BreathingSource,
-                BodyPartTagDefOf.BreathingSourceCage,
-                BodyPartTagDefOf.ConsciousnessSource
-            };
-
-            if (part.def.tags.Any(def => vitalBodyPartTags.Contains(def)))
+            if (part.def.tags.Any(def => NewLimbsNeedsTraining.VitalBodyPartTags.Contains(def)))
             {
                 return;
             }
@@ -55,8 +45,9 @@ namespace NewLimbsNeedsTraining
 
         private static float getOffset(Hediff_AddedPart hediffAddedPart, float incomingEfficency)
         {
-            var factor = (float) hediffAddedPart.ageTicks / NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart);
-            return Math.Min(incomingEfficency, incomingEfficency * factor);
+            var factor = (float)hediffAddedPart.ageTicks / NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart);
+            return Math.Min(incomingEfficency,
+                (incomingEfficency * factor) + NewLimbsNeedsTrainingMod.Instance.settings.StartValue);
         }
     }
 }

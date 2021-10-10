@@ -18,10 +18,13 @@ namespace NewLimbsNeedsTraining
 
         private static string currentVersion;
 
+        public static NewLimbsNeedsTrainingMod Instance;
+
         /// <summary>
         ///     The private settings
         /// </summary>
-        private NewLimbsNeedsTrainingSettings settings;
+        public NewLimbsNeedsTrainingSettings settings;
+
 
         /// <summary>
         ///     Cunstructor
@@ -29,6 +32,7 @@ namespace NewLimbsNeedsTraining
         /// <param name="content"></param>
         public NewLimbsNeedsTrainingMod(ModContentPack content) : base(content)
         {
+            Instance = this;
             updateTechLevels();
             currentVersion =
                 VersionFromManifest.GetVersionFromModMetaData(
@@ -54,7 +58,7 @@ namespace NewLimbsNeedsTraining
 
         private void updateTechLevels()
         {
-            foreach (var techLevel in (TechLevel[]) Enum.GetValues(typeof(TechLevel)))
+            foreach (var techLevel in (TechLevel[])Enum.GetValues(typeof(TechLevel)))
             {
                 DaysUntilRecovery[techLevel] = techLevel switch
                 {
@@ -108,20 +112,20 @@ namespace NewLimbsNeedsTraining
             listing_Standard.Label("NLNT.DaysUntilRecoveryLabel".Translate(), -1,
                 "NLNT.DaysUntilRecoveryToolTip".Translate());
             listing_Standard.Gap();
-            Settings.Neolithic = (int) Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Neolithic, 0,
+            Settings.Neolithic = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Neolithic, 0,
                 100f, false, $"{"Neolithic".Translate()}: {"NLNT.Days".Translate(Settings.Neolithic)}", null, null, 1);
-            Settings.Medieval = (int) Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Medieval, 0,
+            Settings.Medieval = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Medieval, 0,
                 100f,
                 false, $"{"Medieval".Translate()}: {"NLNT.Days".Translate(Settings.Medieval)}", null, null, 1);
-            Settings.Industrial = (int) Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Industrial,
+            Settings.Industrial = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Industrial,
                 0,
                 100f, false, $"{"Industrial".Translate()}: {"NLNT.Days".Translate(Settings.Industrial)}", null, null,
                 1);
-            Settings.Spacer = (int) Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Spacer, 0, 100f,
+            Settings.Spacer = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Spacer, 0, 100f,
                 false, $"{"Spacer".Translate()}: {"NLNT.Days".Translate(Settings.Spacer)}", null, null, 1);
-            Settings.Ultra = (int) Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Ultra, 0, 100f,
+            Settings.Ultra = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Ultra, 0, 100f,
                 false, $"{"Ultra".Translate()}: {"NLNT.Days".Translate(Settings.Ultra)}", null, null, 1);
-            Settings.Archotech = (int) Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Archotech, 0,
+            Settings.Archotech = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Archotech, 0,
                 100f, false, $"{"Archotech".Translate()}: {"NLNT.Days".Translate(Settings.Archotech)}", null, null, 1);
 
             listing_Standard.Gap();
@@ -133,7 +137,12 @@ namespace NewLimbsNeedsTraining
                 Settings.Spacer = 10;
                 Settings.Ultra = 5;
                 Settings.Archotech = 1;
+                listing_Standard.Gap();
             }
+
+            listing_Standard.Label("NLNT.StartValue.Label".Translate());
+            Settings.StartValue = Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.StartValue, 0, 1f,
+                false, "NLNT.StartValue".Translate(Settings.StartValue * 100), null, null, 0.01f);
 
             if (currentVersion != null)
             {

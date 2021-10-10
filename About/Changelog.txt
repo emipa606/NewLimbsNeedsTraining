@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.0.12.0 - Added a setting for choosing the starting-efficency of new limbs
+
+
 1.0.11.0 - Portuguese translation added, thanks goncalui
 
 

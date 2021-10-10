@@ -12,6 +12,7 @@ namespace NewLimbsNeedsTraining
         public int Medieval = 25;
         public int Neolithic = 30;
         public int Spacer = 10;
+        public float StartValue;
         public int Ultra = 5;
 
         /// <summary>
@@ -26,6 +27,7 @@ namespace NewLimbsNeedsTraining
             Scribe_Values.Look(ref Spacer, "Spacer", 10);
             Scribe_Values.Look(ref Ultra, "Ultra", 5);
             Scribe_Values.Look(ref Archotech, "Archotech", 1);
+            Scribe_Values.Look(ref StartValue, "StartValue");
         }
     }
 }
