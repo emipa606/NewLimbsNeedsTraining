@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="NewLimbsNeedsTraining_UpdateFeatureBase">
     <modNameReadable>NewLimbsNeedsTraining</modNameReadable>
     <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2439159828</linkUrl>
   </HugsLib.UpdateFeatureDef>
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef ParentName="NewLimbsNeedsTraining_UpdateFeatureBase">
     <defName>NewLimbsNeedsTraining_1_0_4_0</defName>
     <assemblyVersion>1.0.4.0</assemblyVersion>
     <content>The recovery-rate is now based on tech-level of the limb. The more advanced the limb, the faster the recovery-rate.
