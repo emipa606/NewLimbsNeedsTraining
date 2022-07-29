@@ -4,25 +4,24 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace NewLimbsNeedsTraining
-{
-    [StaticConstructorOnStartup]
-    public static class NewLimbsNeedsTraining
-    {
-        public static readonly List<BodyPartTagDef> VitalBodyPartTags;
+namespace NewLimbsNeedsTraining;
 
-        static NewLimbsNeedsTraining()
+[StaticConstructorOnStartup]
+public static class NewLimbsNeedsTraining
+{
+    public static readonly List<BodyPartTagDef> VitalBodyPartTags;
+
+    static NewLimbsNeedsTraining()
+    {
+        VitalBodyPartTags = new List<BodyPartTagDef>
         {
-            VitalBodyPartTags = new List<BodyPartTagDef>
-            {
-                BodyPartTagDefOf.BloodPumpingSource,
-                BodyPartTagDefOf.BreathingPathway,
-                BodyPartTagDefOf.BreathingSource,
-                BodyPartTagDefOf.BreathingSourceCage,
-                BodyPartTagDefOf.ConsciousnessSource
-            };
-            var harmony = new Harmony("Mlie.NewLimbsNeedsTraining");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
-        }
+            BodyPartTagDefOf.BloodPumpingSource,
+            BodyPartTagDefOf.BreathingPathway,
+            BodyPartTagDefOf.BreathingSource,
+            BodyPartTagDefOf.BreathingSourceCage,
+            BodyPartTagDefOf.ConsciousnessSource
+        };
+        var harmony = new Harmony("Mlie.NewLimbsNeedsTraining");
+        harmony.PatchAll(Assembly.GetExecutingAssembly());
     }
 }
