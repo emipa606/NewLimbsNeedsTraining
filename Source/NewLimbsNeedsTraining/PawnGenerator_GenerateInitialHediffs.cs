@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Linq;
+using HarmonyLib;
 using Verse;
 
 namespace NewLimbsNeedsTraining;
@@ -10,15 +11,18 @@ public class PawnGenerator_GenerateInitialHediffs
     public static void Postfix(ref Pawn pawn, ref PawnGenerationRequest request)
     {
         //Log.Message($"NLNT: PawnGenerator_GenerateInitialHediffs checking if has added parts for {pawn}");
-        foreach (var hediffAddedPart in pawn.health.hediffSet.GetHediffs<Hediff_AddedPart>())
+        foreach (var hediffAddedPart in pawn.health.hediffSet.hediffs.Where(hediff =>
+                     hediff is Hediff_AddedPart))
         {
             if (hediffAddedPart.ageTicks >= 1)
             {
                 continue;
             }
 
-            hediffAddedPart.ageTicks = Rand.Range(NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart),
-                NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart) * 2);
+            var hediff = hediffAddedPart as Hediff_AddedPart;
+
+            hediffAddedPart.ageTicks = Rand.Range(NewLimbsNeedsTrainingMod.TicksUntilDone(hediff),
+                NewLimbsNeedsTrainingMod.TicksUntilDone(hediff) * 2);
             pawn.health.Notify_HediffChanged(hediffAddedPart);
         }
     }

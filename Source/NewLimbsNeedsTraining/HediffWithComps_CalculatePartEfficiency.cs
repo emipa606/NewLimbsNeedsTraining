@@ -33,8 +33,12 @@ public class HediffWithComps_CalculatePartEfficiency
             return;
         }
 
-        var hediffs = diffSet.GetHediffs<Hediff_AddedPart>();
-        var hediffAddedPart = hediffs.First(x => x.Part == part);
+        var hediffs = diffSet.hediffs.Where(hediff => hediff is Hediff_AddedPart);
+        if (hediffs.First(x => x.Part == part) is not Hediff_AddedPart hediffAddedPart)
+        {
+            return;
+        }
+
         if (hediffAddedPart.ageTicks > NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart))
         {
             return;
