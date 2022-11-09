@@ -27,24 +27,3 @@ public class PawnGenerator_GenerateInitialHediffs
         }
     }
 }
-
-//[HarmonyPatch(typeof(PawnGenerator), "GeneratePawn", typeof(PawnGenerationRequest))]
-//public class PawnGenerator_GeneratePawn
-//{
-//    [HarmonyPostfix]
-//    public static void Postfix(ref Pawn __result)
-//    {
-//        Log.Message($"NLNT: PawnGenerator_GeneratePawn resetting hediffs for {__result}");
-//        foreach (var hediffAddedPart in __result.health.hediffSet.GetHediffs<Hediff_AddedPart>())
-//        {
-//            if (hediffAddedPart.ageTicks >= 1)
-//            {
-//                continue;
-//            }
-
-//            hediffAddedPart.ageTicks = Rand.Range(NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart),
-//                NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart) * 2);
-//            __result.health.Notify_HediffChanged(hediffAddedPart);
-//        }
-//    }
-//}

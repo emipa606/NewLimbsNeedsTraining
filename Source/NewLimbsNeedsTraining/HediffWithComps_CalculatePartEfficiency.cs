@@ -39,6 +39,12 @@ public class HediffWithComps_CalculatePartEfficiency
             return;
         }
 
+        // Werewolf parts
+        if (hediffAddedPart.def.defName.StartsWith("ROM_"))
+        {
+            return;
+        }
+
         if (hediffAddedPart.ageTicks > NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart))
         {
             return;
