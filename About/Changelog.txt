@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.4.3 - Updated russian translation by Reiquard
+
+
 1.4.2 - Should now ignore werewolfs from Rim of Madness - Werewolves
 
 

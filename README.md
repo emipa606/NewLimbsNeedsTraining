@@ -1,6 +1,6 @@
 # NewLimbsNeedsTraining
 
-![Image](https://i.imgur.com/buuPQel.png)
+![Image](https://i.imgur.com/iCj5o7O.png)
 
 
 When a pawn gets a new limb transplanted they will need some time until they get used to it.
@@ -13,20 +13,21 @@ The starting efficency can be changed in the mod-settings.
 
 Tested with EPOE but should work with any mod that adds limbs.
 
+- Now ignores werewolfs from https://steamcommunity.com/sharedfiles/filedetails/?id=1115882219]Rim of Madness - Werewolves when pawns transforms
 - Added french translation, thanks qux!
 - Added german translation, thanks 眠いです!
 - Added portuguese translation, thanks goncalui!
 
 Idea by: uiopik 
 	
-![Image](https://i.imgur.com/O0IIlYj.png)
+![Image](https://i.imgur.com/Ds0rBAD.png)
 
 Since modding is just a hobby for me I expect no donations to keep modding. If you still want to show your support you can gift me anything from my https://store.steampowered.com/wishlist/id/Mlie]Wishlist or buy me a cup of tea.
 
-https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/Utx6OIH.png)
+https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 
 
-![Image](https://i.imgur.com/PwoNOj4.png)
+![Image](https://i.imgur.com/5xwDG6H.png)
 
 
 
@@ -40,3 +41,4 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/Utx6OIH.png)
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2439159828]Last updated 2023-05-02
