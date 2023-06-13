@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.4.4 - Added patch for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2734032569]Vanilla Storytellers Expanded - Winston Waves[/url]
+
+
 1.4.3 - Updated russian translation by Reiquard
 
 

@@ -19,7 +19,7 @@ internal class NewLimbsNeedsTrainingMod : Mod
     /// <summary>
     ///     The private settings
     /// </summary>
-    public NewLimbsNeedsTrainingSettings settings;
+    private NewLimbsNeedsTrainingSettings settings;
 
 
     /// <summary>
@@ -31,14 +31,13 @@ internal class NewLimbsNeedsTrainingMod : Mod
         Instance = this;
         updateTechLevels();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(
-                ModLister.GetActiveModWithIdentifier("Mlie.NewLimbsNeedsTraining"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     /// <summary>
     ///     The instance-settings for the mod
     /// </summary>
-    private NewLimbsNeedsTrainingSettings Settings
+    public NewLimbsNeedsTrainingSettings Settings
     {
         get
         {
@@ -108,20 +107,26 @@ internal class NewLimbsNeedsTrainingMod : Mod
         listing_Standard.Label("NLNT.DaysUntilRecoveryLabel".Translate(), -1,
             "NLNT.DaysUntilRecoveryToolTip".Translate());
         listing_Standard.Gap();
-        Settings.Neolithic = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Neolithic, 0,
+        Settings.Neolithic = (int)Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer), Settings.Neolithic,
+            0,
             100f, false, $"{"Neolithic".Translate()}: {"NLNT.Days".Translate(Settings.Neolithic)}", null, null, 1);
-        Settings.Medieval = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Medieval, 0,
+        Settings.Medieval = (int)Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer), Settings.Medieval,
+            0,
             100f,
             false, $"{"Medieval".Translate()}: {"NLNT.Days".Translate(Settings.Medieval)}", null, null, 1);
-        Settings.Industrial = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Industrial,
+        Settings.Industrial = (int)Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer),
+            Settings.Industrial,
             0,
             100f, false, $"{"Industrial".Translate()}: {"NLNT.Days".Translate(Settings.Industrial)}", null, null,
             1);
-        Settings.Spacer = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Spacer, 0, 100f,
+        Settings.Spacer = (int)Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer), Settings.Spacer, 0,
+            100f,
             false, $"{"Spacer".Translate()}: {"NLNT.Days".Translate(Settings.Spacer)}", null, null, 1);
-        Settings.Ultra = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Ultra, 0, 100f,
+        Settings.Ultra = (int)Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer), Settings.Ultra, 0,
+            100f,
             false, $"{"Ultra".Translate()}: {"NLNT.Days".Translate(Settings.Ultra)}", null, null, 1);
-        Settings.Archotech = (int)Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.Archotech, 0,
+        Settings.Archotech = (int)Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer), Settings.Archotech,
+            0,
             100f, false, $"{"Archotech".Translate()}: {"NLNT.Days".Translate(Settings.Archotech)}", null, null, 1);
 
         listing_Standard.Gap();
@@ -139,7 +144,8 @@ internal class NewLimbsNeedsTrainingMod : Mod
 
         listing_Standard.Gap();
         listing_Standard.Label("NLNT.StartValue.Label".Translate());
-        Settings.StartValue = Widgets.HorizontalSlider(listing_Standard.GetRect(spacer), Settings.StartValue, 0, 1f,
+        Settings.StartValue = Widgets.HorizontalSlider_NewTemp(listing_Standard.GetRect(spacer), Settings.StartValue, 0,
+            1f,
             false, "NLNT.StartValue".Translate(Math.Round(Settings.StartValue * 100)));
 
         if (currentVersion != null)

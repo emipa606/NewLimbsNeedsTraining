@@ -8,9 +8,8 @@ namespace NewLimbsNeedsTraining;
 public class PawnGenerator_GenerateInitialHediffs
 {
     [HarmonyPostfix]
-    public static void Postfix(ref Pawn pawn, ref PawnGenerationRequest request)
+    public static void Postfix(ref Pawn pawn)
     {
-        //Log.Message($"NLNT: PawnGenerator_GenerateInitialHediffs checking if has added parts for {pawn}");
         foreach (var hediffAddedPart in pawn.health.hediffSet.hediffs.Where(hediff =>
                      hediff is Hediff_AddedPart))
         {

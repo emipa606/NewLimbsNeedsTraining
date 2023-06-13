@@ -57,6 +57,6 @@ public class HediffWithComps_CalculatePartEfficiency
     {
         var factor = (float)hediffAddedPart.ageTicks / NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart);
         return Math.Min(incomingEfficency,
-            (incomingEfficency * factor) + NewLimbsNeedsTrainingMod.Instance.settings.StartValue);
+            (incomingEfficency * factor) + NewLimbsNeedsTrainingMod.Instance.Settings.StartValue);
     }
 }
