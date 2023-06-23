@@ -24,6 +24,35 @@ public static class NewLimbsNeedsTraining
         var harmony = new Harmony("Mlie.NewLimbsNeedsTraining");
         harmony.PatchAll(Assembly.GetExecutingAssembly());
 
+
+        var postfix =
+            typeof(PawnGenerator_GenerateInitialHediffs).GetMethod(nameof(PawnGenerator_GenerateInitialHediffs
+                .Postfix));
+
+        if (postfix == null)
+        {
+            Log.Message(
+                "[NewLimbsNeedTraining]: Failed to find postfix for PawnGenerator_GenerateInitialHediffs. Cannot add any extra patches.");
+            return;
+        }
+
+        if (ModLister.GetActiveModWithIdentifier("twsta.compressedraid.latest") != null)
+        {
+            var addBionicsMethod = AccessTools.Method("CompressedRaid.BionicsDataStore:AddBionics",
+                new[] { typeof(Pawn), typeof(float) });
+            if (addBionicsMethod != null)
+            {
+                Log.Message(
+                    "[NewLimbsNeedTraining]: Patching Compressed Raid AddBionics-method. Raiders should now have full efficency in their added hediffs.");
+                harmony.Patch(addBionicsMethod, null, new HarmonyMethod(postfix));
+            }
+            else
+            {
+                Log.Message(
+                    "[NewLimbsNeedTraining]: Failed to find Compressed Raid AddBionics-method. Raiders will enter the map with 0% efficency.");
+            }
+        }
+
         if (ModLister.GetActiveModWithIdentifier("VanillaStorytellersExpanded.WinstonWave") == null)
         {
             return;
@@ -34,16 +63,6 @@ public static class NewLimbsNeedsTraining
         {
             Log.Message(
                 "[NewLimbsNeedTraining]: Failed to find Winston Waves hediffgenerator. Raiders will enter the map with 0% efficency.");
-            return;
-        }
-
-        var postfix =
-            typeof(PawnGenerator_GenerateInitialHediffs).GetMethod(nameof(PawnGenerator_GenerateInitialHediffs
-                .Postfix));
-        if (postfix == null)
-        {
-            Log.Message(
-                "[NewLimbsNeedTraining]: Failed to find postfix for Winston Waves hediffgenerator. Raiders will enter the map with 0% efficency.");
             return;
         }
 
