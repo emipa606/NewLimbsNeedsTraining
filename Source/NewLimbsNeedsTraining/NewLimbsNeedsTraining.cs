@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -28,6 +29,7 @@ public static class NewLimbsNeedsTraining
         var postfix =
             typeof(PawnGenerator_GenerateInitialHediffs).GetMethod(nameof(PawnGenerator_GenerateInitialHediffs
                 .Postfix));
+        var genePostfix = typeof(NewLimbsNeedsTraining).GetMethod(nameof(GenePostfix));
 
         if (postfix == null)
         {
@@ -53,6 +55,28 @@ public static class NewLimbsNeedsTraining
             }
         }
 
+        if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core") != null)
+        {
+            var applyGeneEffectsOverrideMethod = AccessTools.Method(
+                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_OverrideBy_Patch:ApplyGeneEffects",
+                new[] { typeof(Gene) });
+            var applyGeneEffectsPostAddMethod = AccessTools.Method(
+                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_PostAdd_Patch:ApplyGeneEffects",
+                new[] { typeof(Gene) });
+            if (applyGeneEffectsOverrideMethod != null && applyGeneEffectsPostAddMethod != null)
+            {
+                Log.Message(
+                    "[NewLimbsNeedTraining]: Patching Vanilla Expanded ApplyGeneEffects-method. Pawns spawning with replaced bodyparts using gene-effects will have full efficency in their added hediffs.");
+                harmony.Patch(applyGeneEffectsOverrideMethod, null, new HarmonyMethod(genePostfix));
+                harmony.Patch(applyGeneEffectsPostAddMethod, null, new HarmonyMethod(genePostfix));
+            }
+            else
+            {
+                Log.Message(
+                    "[NewLimbsNeedTraining]: Failed to find Vanilla Expanded ApplyGeneEffects-method. Pawns spawning with replaced bodyparts using gene-effects will enter the map with 0% efficency.");
+            }
+        }
+
         if (ModLister.GetActiveModWithIdentifier("VanillaStorytellersExpanded.WinstonWave") == null)
         {
             return;
@@ -69,5 +93,23 @@ public static class NewLimbsNeedsTraining
         Log.Message(
             "[NewLimbsNeedTraining]: Patching Winston Waves extra hediff-giver. Raiders should now have full efficency in their added hediffs.");
         harmony.Patch(installPartMethod, null, new HarmonyMethod(postfix));
+    }
+
+    public static void GenePostfix(ref Gene gene)
+    {
+        foreach (var hediffAddedPart in gene.pawn.health.hediffSet.hediffs.Where(hediff =>
+                     hediff is Hediff_AddedPart))
+        {
+            if (hediffAddedPart.ageTicks >= 1)
+            {
+                continue;
+            }
+
+            var hediff = hediffAddedPart as Hediff_AddedPart;
+
+            hediffAddedPart.ageTicks = Rand.Range(NewLimbsNeedsTrainingMod.TicksUntilDone(hediff),
+                NewLimbsNeedsTrainingMod.TicksUntilDone(hediff) * 2);
+            gene.pawn.health.Notify_HediffChanged(hediffAddedPart);
+        }
     }
 }
