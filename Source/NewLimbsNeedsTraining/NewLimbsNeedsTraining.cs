@@ -14,14 +14,14 @@ public static class NewLimbsNeedsTraining
 
     static NewLimbsNeedsTraining()
     {
-        VitalBodyPartTags = new List<BodyPartTagDef>
-        {
+        VitalBodyPartTags =
+        [
             BodyPartTagDefOf.BloodPumpingSource,
             BodyPartTagDefOf.BreathingPathway,
             BodyPartTagDefOf.BreathingSource,
             BodyPartTagDefOf.BreathingSourceCage,
             BodyPartTagDefOf.ConsciousnessSource
-        };
+        ];
         var harmony = new Harmony("Mlie.NewLimbsNeedsTraining");
         harmony.PatchAll(Assembly.GetExecutingAssembly());
 
@@ -41,7 +41,7 @@ public static class NewLimbsNeedsTraining
         if (ModLister.GetActiveModWithIdentifier("twsta.compressedraid.latest") != null)
         {
             var addBionicsMethod = AccessTools.Method("CompressedRaid.BionicsDataStore:AddBionics",
-                new[] { typeof(Pawn), typeof(float) });
+                [typeof(Pawn), typeof(float)]);
             if (addBionicsMethod != null)
             {
                 Log.Message(
@@ -59,10 +59,10 @@ public static class NewLimbsNeedsTraining
         {
             var applyGeneEffectsOverrideMethod = AccessTools.Method(
                 "VanillaGenesExpanded.VanillaGenesExpanded_Gene_OverrideBy_Patch:ApplyGeneEffects",
-                new[] { typeof(Gene) });
+                [typeof(Gene)]);
             var applyGeneEffectsPostAddMethod = AccessTools.Method(
                 "VanillaGenesExpanded.VanillaGenesExpanded_Gene_PostAdd_Patch:ApplyGeneEffects",
-                new[] { typeof(Gene) });
+                [typeof(Gene)]);
             if (applyGeneEffectsOverrideMethod != null && applyGeneEffectsPostAddMethod != null)
             {
                 Log.Message(

@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.5.0 - Mod updated for 1.5 and passed autotests
+
+
 1.4.6 - Added support for the gene-extension method in [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013]Vanilla Expanded Framework[/url] that can replace bodyparts when applying a gene. Parts added by genes should now spawn with full efficency.
 
 
