@@ -58,10 +58,10 @@ public static class NewLimbsNeedsTraining
         if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core") != null)
         {
             var applyGeneEffectsOverrideMethod = AccessTools.Method(
-                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_OverrideBy_Patch:ApplyGeneEffects",
-                [typeof(Gene)]);
+                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_OverrideBy_Patch:Postfix",
+                [typeof(Gene), typeof(Gene)]);
             var applyGeneEffectsPostAddMethod = AccessTools.Method(
-                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_PostAdd_Patch:ApplyGeneEffects",
+                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_PostAdd_Patch:Postfix",
                 [typeof(Gene)]);
             if (applyGeneEffectsOverrideMethod != null && applyGeneEffectsPostAddMethod != null)
             {
@@ -95,8 +95,13 @@ public static class NewLimbsNeedsTraining
         harmony.Patch(installPartMethod, null, new HarmonyMethod(postfix));
     }
 
-    public static void GenePostfix(ref Gene gene)
+    public static void GenePostfix(object[] __args)
     {
+        if (__args[0] is not Gene gene)
+        {
+            return;
+        }
+
         foreach (var hediffAddedPart in gene.pawn.health.hediffSet.hediffs.Where(hediff =>
                      hediff is Hediff_AddedPart))
         {

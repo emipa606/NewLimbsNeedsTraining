@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.5.1 - Fixed Vanilla Genes Expanded compatibility
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 
