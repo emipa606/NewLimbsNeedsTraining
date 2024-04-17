@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.5.2 - Now ignores mutations
+
+
 1.5.1 - Fixed Vanilla Genes Expanded compatibility
 
 

@@ -45,6 +45,12 @@ public class HediffWithComps_CalculatePartEfficiency
             return;
         }
 
+        // Mutations
+        if (hediffAddedPart.def.organicAddedBodypart)
+        {
+            return;
+        }
+
         if (hediffAddedPart.ageTicks > NewLimbsNeedsTrainingMod.TicksUntilDone(hediffAddedPart))
         {
             return;
