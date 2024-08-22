@@ -1,5 +1,8 @@
 # Changelog for NewLimbsNeedsTraining
 
+1.5.3 - Fixed Vanilla Storytellers Expanded - Winston Waves compatibility
+
+
 1.5.2 - Now ignores mutations
 
 

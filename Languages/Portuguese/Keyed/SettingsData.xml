@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <NLNT.DaysUntilRecoveryLabel>Dias até o uso total dos membros, com base no nível de tecnologia do membro.</NLNT.DaysUntilRecoveryLabel>
   <NLNT.DaysUntilRecoveryToolTip>A eficiência de um membro começará em 0 e aumentará para o valor até o valor padrão. Isso irá demorar essa quantidade de dias: </NLNT.DaysUntilRecoveryToolTip>

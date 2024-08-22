@@ -77,7 +77,7 @@ public static class NewLimbsNeedsTraining
             }
         }
 
-        if (ModLister.GetActiveModWithIdentifier("VanillaStorytellersExpanded.WinstonWave") == null)
+        if (ModLister.GetActiveModWithIdentifier("VanillaStorytellersExpanded.WinstonWaves") == null)
         {
             return;
         }
