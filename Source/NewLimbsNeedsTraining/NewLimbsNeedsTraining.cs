@@ -38,24 +38,24 @@ public static class NewLimbsNeedsTraining
             return;
         }
 
-        if (ModLister.GetActiveModWithIdentifier("twsta.compressedraid.latest") != null)
+        if (ModLister.GetActiveModWithIdentifier("twsta.compressedraid.latest", true) != null)
         {
             var addBionicsMethod = AccessTools.Method("CompressedRaid.BionicsDataStore:AddBionics",
                 [typeof(Pawn), typeof(float)]);
             if (addBionicsMethod != null)
             {
                 Log.Message(
-                    "[NewLimbsNeedTraining]: Patching Compressed Raid AddBionics-method. Raiders should now have full efficency in their added hediffs.");
+                    "[NewLimbsNeedTraining]: Patching Compressed Raid AddBionics-method. Raiders should now have full efficiency in their added hediffs.");
                 harmony.Patch(addBionicsMethod, null, new HarmonyMethod(postfix));
             }
             else
             {
                 Log.Message(
-                    "[NewLimbsNeedTraining]: Failed to find Compressed Raid AddBionics-method. Raiders will enter the map with 0% efficency.");
+                    "[NewLimbsNeedTraining]: Failed to find Compressed Raid AddBionics-method. Raiders will enter the map with 0% efficiency.");
             }
         }
 
-        if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core") != null)
+        if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core", true) != null)
         {
             var applyGeneEffectsOverrideMethod = AccessTools.Method(
                 "VanillaGenesExpanded.VanillaGenesExpanded_Gene_OverrideBy_Patch:Postfix",
@@ -66,18 +66,18 @@ public static class NewLimbsNeedsTraining
             if (applyGeneEffectsOverrideMethod != null && applyGeneEffectsPostAddMethod != null)
             {
                 Log.Message(
-                    "[NewLimbsNeedTraining]: Patching Vanilla Expanded ApplyGeneEffects-method. Pawns spawning with replaced bodyparts using gene-effects will have full efficency in their added hediffs.");
+                    "[NewLimbsNeedTraining]: Patching Vanilla Expanded ApplyGeneEffects-method. Pawns spawning with replaced bodyparts using gene-effects will have full efficiency in their added hediffs.");
                 harmony.Patch(applyGeneEffectsOverrideMethod, null, new HarmonyMethod(genePostfix));
                 harmony.Patch(applyGeneEffectsPostAddMethod, null, new HarmonyMethod(genePostfix));
             }
             else
             {
                 Log.Message(
-                    "[NewLimbsNeedTraining]: Failed to find Vanilla Expanded ApplyGeneEffects-method. Pawns spawning with replaced bodyparts using gene-effects will enter the map with 0% efficency.");
+                    "[NewLimbsNeedTraining]: Failed to find Vanilla Expanded ApplyGeneEffects-method. Pawns spawning with replaced bodyparts using gene-effects will enter the map with 0% efficiency.");
             }
         }
 
-        if (ModLister.GetActiveModWithIdentifier("VanillaStorytellersExpanded.WinstonWaves") == null)
+        if (ModLister.GetActiveModWithIdentifier("VanillaStorytellersExpanded.WinstonWaves", true) == null)
         {
             return;
         }
@@ -91,7 +91,7 @@ public static class NewLimbsNeedsTraining
         }
 
         Log.Message(
-            "[NewLimbsNeedTraining]: Patching Winston Waves extra hediff-giver. Raiders should now have full efficency in their added hediffs.");
+            "[NewLimbsNeedTraining]: Patching Winston Waves extra hediff-giver. Raiders should now have full efficiency in their added hediffs.");
         harmony.Patch(installPartMethod, null, new HarmonyMethod(postfix));
     }
 
