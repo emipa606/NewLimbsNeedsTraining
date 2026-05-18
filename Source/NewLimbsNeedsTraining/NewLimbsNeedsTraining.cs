@@ -58,10 +58,10 @@ public static class NewLimbsNeedsTraining
         if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core", true) != null)
         {
             var applyGeneEffectsOverrideMethod = AccessTools.Method(
-                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_OverrideBy_Patch:Postfix",
+                "VEF.Genes.VanillaExpandedFramework_Gene_OverrideBy_Patch:Postfix",
                 [typeof(Gene), typeof(Gene)]);
             var applyGeneEffectsPostAddMethod = AccessTools.Method(
-                "VanillaGenesExpanded.VanillaGenesExpanded_Gene_PostAdd_Patch:Postfix",
+                "VEF.Genes.VanillaExpandedFramework_Gene_PostAdd_Patch:Postfix",
                 [typeof(Gene)]);
             if (applyGeneEffectsOverrideMethod != null && applyGeneEffectsPostAddMethod != null)
             {

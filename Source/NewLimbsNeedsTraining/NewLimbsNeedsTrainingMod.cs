@@ -16,11 +16,6 @@ internal class NewLimbsNeedsTrainingMod : Mod
 
     public static NewLimbsNeedsTrainingMod Instance;
 
-    /// <summary>
-    ///     The private settings
-    /// </summary>
-    private NewLimbsNeedsTrainingSettings settings;
-
 
     /// <summary>
     ///     Cunstructor
@@ -41,9 +36,9 @@ internal class NewLimbsNeedsTrainingMod : Mod
     {
         get
         {
-            settings ??= GetSettings<NewLimbsNeedsTrainingSettings>();
+            field ??= GetSettings<NewLimbsNeedsTrainingSettings>();
 
-            return settings;
+            return field;
         }
     }
 
