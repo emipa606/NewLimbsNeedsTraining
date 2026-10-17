@@ -8,9 +8,8 @@ namespace NewLimbsNeedsTraining;
 
 [HarmonyPatch(typeof(PawnCapacityUtility), "CalculatePartEfficiency", typeof(HediffSet), typeof(BodyPartRecord),
     typeof(bool), typeof(List<PawnCapacityUtility.CapacityImpactor>))]
-public class HediffWithComps_CalculatePartEfficiency
+public static class HediffWithComps_CalculatePartEfficiency
 {
-    [HarmonyPostfix]
     public static void Postfix(HediffSet diffSet, BodyPartRecord part, ref float __result)
     {
         if (part.depth != BodyPartDepth.Outside)

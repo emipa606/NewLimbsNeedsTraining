@@ -39,4 +39,4 @@ Since modding is just a hobby for me I expect no donations to keep modding. If y
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/NewLimbsNeedsTraining?label=latest%20version&style=plastic&labelColor=0070cd&color=white)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2439159828) | tags: recovery
+[![Image](https://img.shields.io/github/v/release/emipa606/NewLimbsNeedsTraining?label=latest%20version&style=plastic&labelColor=0070cd&color=white)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2439159828) | recovery

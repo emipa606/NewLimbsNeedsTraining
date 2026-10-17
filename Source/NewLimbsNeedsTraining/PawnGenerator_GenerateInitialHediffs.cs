@@ -5,9 +5,8 @@ using Verse;
 namespace NewLimbsNeedsTraining;
 
 [HarmonyPatch(typeof(PawnGenerator), "GenerateInitialHediffs", typeof(Pawn), typeof(PawnGenerationRequest))]
-public class PawnGenerator_GenerateInitialHediffs
+public static class PawnGenerator_GenerateInitialHediffs
 {
-    [HarmonyPostfix]
     public static void Postfix(ref Pawn pawn)
     {
         foreach (var hediffAddedPart in pawn.health.hediffSet.hediffs.Where(hediff =>
